@@ -24,6 +24,7 @@
     width: 20%;
     background-color: rgb(6, 32, 32);
     justify-content: space-between;
+    text-align: center;
 }
 .right{
     height: 100%;
@@ -34,7 +35,16 @@
 h4{
     color: aliceblue;
     cursor: pointer;
+    text-align: center;
 }
+h4:hover{
+    background-color: rgb(22, 37, 51);
+    text-shadow: opx 1px;
+    border-radius: 10px;
+}
+
 h2{
     text-transform: capitalize;
+    padding: 10px;
+    margin-left: 35px;
 }

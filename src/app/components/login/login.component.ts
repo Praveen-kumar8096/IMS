@@ -16,28 +16,27 @@ public loginUserForm:FormGroup=new FormGroup(
     password:new FormControl(null,[Validators.required,Validators.minLength(8),Validators.maxLength(10)])
   }
 )
- 
-
- 
-  
-
-  constructor(private _loginServce:LoginService ,private _router:Router) { 
-    this._loginServce.getlogin(this.loginUserForm).subscribe(
-      (data:any)=>{
-        this.loginUserForm=data;
-      }
-    )
+ constructor(private _loginServce:LoginService ,private _router:Router) { 
+    
   }
   
-
-
   ngOnInit(): void {
   }
   login(){
-  
+    
     console.log(this.loginUserForm);
     this.loginUserForm.markAllAsTouched();
-    this._router.navigateByUrl('/dashboard');
+   
+
+    this._loginServce.getlogin(this.loginUserForm.value).subscribe(
+      (data:any)=>{
+        sessionStorage.setItem('IMS-token',data.token);
+        this._router.navigateByUrl('/dashboard');
+      },
+      (error:any)=>{
+        alert('invalid credientials');
+      }
+    )
   }
  
 }

@@ -11,27 +11,25 @@
    <div class="body">
     <div class="left">
         <div>
-            <ul class="nav flex-column">
+            <ul>
            
-                <li class="nav-item">
-                  <h4 class="nav-link">ALL STUDENTS</h4>
+                <li>
+                  <h4 (click)="createstudent()">CREATE STUDENT</h4>
                 </li>
-                <li class="nav-item">
-                  <h4 class="nav-link">STUDENT DETAILS</h4>
+                <li>
+                  <h4 (click)="allstudents()">ALL STUDENTS</h4>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
-                </li>
+                
                 
             </ul>
         </div>
         <div>
-            <button class="btn btn-primary">LOGOUT</button>
+            <button class="btn btn-primary" routerLink="/login">LOGOUT</button>
         </div>
     </div>
     
     <div class="right">
-
+        <router-outlet></router-outlet>
     </div>
 
 
