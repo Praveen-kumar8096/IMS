@@ -1,1 +1,31 @@
-<p>create-student works!</p>
+<form [formGroup]="studentForm">
+    <div class="main">
+        <div class="container">
+            <h3>STUDENT REGISTRATION</h3>
+           <label>NAME:</label>
+           <input type="text"  placeholder="name" formControlName="name" ><br>
+           <label>GENDER</label>
+           <input type="radio" name="gender" value="male" formControlName="gender">
+           <label>MALE</label>
+           <input type="radio" name="gender" value="female" formControlName="gender">
+           <label >FEMALE</label><br>
+           <label>MOBILE:</label>
+           <input type="number" placeholder="number" formControlName="mobile"><br>
+           <label>EMAIL:</label>
+           <input type="text" placeholder="email" formControlName="email"><br>
+           <label>BATCH:</label>
+           <input type="text" placeholder="name" formControlName="batch" ><br>
+           <label>ADDRESS</label>
+           <div formGroupName="address">
+            <label>city:</label>
+            <input type="text" placeholder="city" formControlName="city"><br>
+            <label>state:</label>
+            <input type="text" placeholder="state" formControlName="state" ><br>
+            <label>pin:</label>
+            <input type="text" placeholder="pin" formControlName="pin"  >
+           </div>
+
+           <button class="btn btn-primary" (click)="register()">REGISTER</button>
+        </div>
+    </div>
+</form>

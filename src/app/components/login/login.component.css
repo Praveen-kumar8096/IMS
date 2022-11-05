@@ -17,7 +17,7 @@ body, html {
   
   .bg-img {
     
-    background-image: url("/assets/ims.jpg");
+    background-image: url("/assets/ims.jpg"); 
   
     min-height: 550px;
   
@@ -29,7 +29,7 @@ body, html {
   }
   
   
-  .container {
+  #container {
     position: absolute;
     right: 0;
     margin: 50px;
