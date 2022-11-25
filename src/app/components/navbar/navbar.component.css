@@ -1,0 +1,9 @@
+.one{
+    width: 100%;
+    height: 100%;
+}
+.child{
+    height: 20%;
+    width: 100%;
+    background-color: rgb(117, 168, 168);
+}

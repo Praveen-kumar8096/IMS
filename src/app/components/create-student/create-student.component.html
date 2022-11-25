@@ -2,9 +2,129 @@
     <div class="main">
         <div class="container">
             <h3>STUDENT REGISTRATION</h3>
-           <label>NAME:</label>
-           <input type="text"  placeholder="name" formControlName="name" ><br>
-           <label>GENDER</label>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                <label for="name"> NAME </label>
+                </div>
+                <div class="col-sm-8">
+                <input type="text" id="name" class="form-control" placeholder="Enter name" name="name">
+                </div>
+                
+            </div>
+           <div class="row form-group">
+            <div class="col-sm-4">
+                <label>GENDER</label>
+            </div>
+            <div class="col-sm-8">
+            <input type="radio" name="gender" value="male" formControlName="gender" >
+            <label > MALE </label>
+            <input type="radio" name="gender" value="female" formControlName="gender">
+            <label> FEMALE </label>
+            </div>
+            
+           </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                <label for="name"> MOBILE </label>
+                </div>
+                <div class="col-sm-8">
+                <input type="text" id="name" class="form-control" placeholder="Enter mobile number" name="name">
+                </div>
+                
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                <label for="email"> EMAIL</label>
+                </div>
+                <div class="col-sm-8">
+                <input type="text" id="email" class="form-control" placeholder="Enter email" name="email">
+                </div>
+                
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                <label for="name"> BATCH </label>
+                </div>
+                <div class="col-sm-8">
+                <input type="date" id="name" class="form-control" placeholder="Enter name" name="date">
+                </div>   
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                <label for="name"> ADDRESS </label>
+                </div>
+                <div class="col-sm-8" formGroupName="address">
+                <input type="text" id="city" class="form-control" placeholder="city" name="city" formControlName="city">
+                <input type="text" id="city" class="form-control" placeholder="state" name="state" formControlName="state">
+                <input type="number" id="pin" class="form-control" placeholder="pin" name="pin" formControlName="pin">
+            
+
+                <button class="btn btn-primary" (click)="add()">Add Educations</button>
+                </div>
+               
+                
+            </div>
+            
+            <div class="row form-group" formArrayName="educations">
+                
+                <div class="col-sm-4">
+                <label for="name" > EDUCATION DETAILS </label>
+                </div>
+                
+                <div *ngFor="let education of educationsFormArray?.controls; let i=index">
+                <div class="col-sm-8" formGroupName="{{i}}">
+                <input type="text"  class="form-control" placeholder="qualification" formControlName="qualification">
+                <input type="text"  class="form-control" placeholder="year"  formControlName="year">
+                <input type="text" class="form-control" placeholder="percentage" formControlName="percentage ">
+                <button (click)="delete(i)" class="btn btn-danger">delete</button>
+                </div>
+                </div>  
+                
+            </div>
+
+            <div formGroupName="company" class="row form-group">
+
+                <div class="col-sm-4" >
+                    <label>Company</label>
+
+                </div>
+                <div class="col-sm-8 ">
+                    <input type="text" placeholder="name" formControlName="name" class="form-control">
+                    <input type="text" placeholder="location" formControlName="location" class="form-control">
+                    <input type="text" placeholder="package" formControlName="package" class="form-control">
+                    <input type="text" placeholder="offerdate" formControlName="year" class="form-control">
+                </div>
+
+            </div>
+            <div formGroupName="sourceType" class="row form-group">
+                <div class="col-sm-4">
+                    <label>SOURCE TYPE</label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="radio" name="sourcetype" value="sourcefrom" formControlName="sourceType">
+                    <label for="">SOURCEFROM</label>
+                    <input type="radio" value="refferel" name="sourcetype" formControlName="sourceType">
+                    <label for="">REFFEREL</label>
+                </div>
+            </div>
+            
+            <div *ngIf="studentForm.get('sourceType')?.value=='sourceFrom'">
+                <input type="text" formControlName="sourceFrom">
+
+            </div>
+            <div *ngIf="studentForm.get('sourceType')?.value=='refferel'">
+                <input type="text" formControlName="refferel">
+
+            </div>
+            
+            
+            
+           <button class="btn btn-primary" (click)="register()">REGISTER</button>
+        </div>
+    </div>
+</form>
+                
+           <!-- <label>GENDER</label>
            <input type="radio" name="gender" value="male" formControlName="gender">
            <label>MALE</label>
            <input type="radio" name="gender" value="female" formControlName="gender">
@@ -24,8 +144,22 @@
             <label>pin:</label>
             <input type="text" placeholder="pin" formControlName="pin"  >
            </div>
+           <button class="btn btn-primary" (click)="add()">Add Educations</button><br>
 
-           <button class="btn btn-primary" (click)="register()">REGISTER</button>
-        </div>
-    </div>
-</form>
+
+
+           <div formArrayName="educations">
+            <div *ngFor="let education of educationsFormArray?.controls; let i=index">
+                <div formGroupName="{{i}}">
+                    <label>standard</label>
+                    <input type="text" placeholder="standard" formControlName="standard"><br>
+                    <label>institute</label>
+                    <input type="text" placeholder="institute" formControlName="institute"><br>
+                    <label>year</label>
+                    <input type="text" placeholder="year" formControlName="year">
+                    <button (click)="delete(i)" class="btn btn-danger">delete</button>
+                </div>
+            </div>
+           </div>
+
+  -->

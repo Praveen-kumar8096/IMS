@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup, FormGroupName } from '@angular/forms';
+import { FormArray, FormControl, FormControlName, FormGroup, FormGroupName } from '@angular/forms';
+import { AllstudentsService } from 'src/app/services/allstudents.service';
 
 @Component({
   selector: 'app-create-student',
@@ -19,18 +20,49 @@ export class CreateStudentComponent implements OnInit {
         city:new FormControl(),
         state: new FormControl(),
         pin:new FormControl()
-      }
+      }),
+    educations:new FormArray([]),
+    company:new FormGroup({
+      name:new FormControl(),
+      location:new FormControl(),
+      package:new FormControl(),
+      offerDate:new FormControl()
+    }),
+    sourceType:new FormControl(),
+    sourceFrom:new FormControl(),
+    referrel:new FormControl()
+  
+  })
+  get educationsFormArray(){
+    return this.studentForm.get('educations') as FormArray;
+  }
+  add(){
+      this.educationsFormArray.push(
+      new FormGroup({
+        qualification:new FormControl(),
+        year:new FormControl(),
+        percentage:new FormControl()
+      })
     )
-
-  },
-
-  )
-  constructor() { }
+  }
+  constructor(private allstudentService:AllstudentsService) { 
+    
+  }
 
   ngOnInit(): void {
   }
-  register(){[
-    console.log(this.studentForm)
-  ]}
-
+  register(){
+    this.allstudentService.c1(this.studentForm.value).subscribe(
+      (data:any)=>{
+        console.log(this.studentForm);
+        alert('create successfully');
+      },
+      (error:any)=>{
+        alert("give details");
+      }
+    )
+  }
+  delete(i:number){
+    this.educationsFormArray.removeAt(i);
+  }
 }

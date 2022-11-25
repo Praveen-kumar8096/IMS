@@ -19,4 +19,7 @@ export class DashboardComponent implements OnInit {
   allstudents(){
     this._router.navigateByUrl('/dashboard/allstudents');
   }
+  navbar(){
+    this._router.navigateByUrl("/dashboard/navbar");
+  }
 }

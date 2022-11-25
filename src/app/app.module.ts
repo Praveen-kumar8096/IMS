@@ -7,10 +7,12 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { CreateStudentComponent } from './components/create-student/create-student.component';
 import { AllstudentsComponent } from './components/allstudents/allstudents.component';
+import { DetailPageComponent } from './components/detail-page/detail-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,14 +20,17 @@ import { AllstudentsComponent } from './components/allstudents/allstudents.compo
     DashboardComponent,
     PagenotfoundComponent,
     CreateStudentComponent,
-    AllstudentsComponent
+    AllstudentsComponent,
+    DetailPageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
     
   
   ],

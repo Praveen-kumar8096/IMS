@@ -1,5 +1,5 @@
 
-.container{
+/* .container{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -7,19 +7,24 @@
     border: 1px solid wheat;
     width: 600px;
     height: 550px;
+    overflow: auto;
    
     
-}
+} */
+
 input{
     border-radius: 5px rgb(163, 217, 233);
 }
 .container:hover{
     box-shadow: 2px 4px 15px black;
 }
-label{
-    width: 80px;
-    display: inline-block;
-}
 input:hover{
     box-shadow: 1px 2px 3px;
+}
+.main{
+    overflow: auto;
+}
+label{
+    font-weight: 600;
+    color: white;
 }

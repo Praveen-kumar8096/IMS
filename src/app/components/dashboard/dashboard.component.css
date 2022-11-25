@@ -30,7 +30,7 @@
     height: 100%;
     width: 80%;
     background-color: rgb(66, 88, 81);
-    
+    overflow: auto;
 }
 h4{
     color: aliceblue;

@@ -1,1 +1,61 @@
-<p>allstudents works!</p>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-primary" type="button" (click)="filter()">Filter</button>
+    </div>
+    <input type="text" class="form-control"  placeholder="Some text" [(ngModel)]="term">
+</div>
+
+<select [(ngModel)]="column">
+  <option>Name</option>
+  <option>gender</option>
+  <option>mobile</option>
+  <option>batch</option>
+  <option>address</option>
+  <option>company</option>
+  <option>package</option>
+
+</select>
+<select [(ngModel)]="order">
+  <option>asc</option>
+  <option >desc</option>
+</select>
+<button class="btn btn-primary" (click)="sort()">sort</button>
+
+<table class="table table-dark">
+    <thead>
+        <th>id</th>
+        <th>Name</th>
+        <th>gender</th>
+        <th>mobile</th>
+        <th>batch</th>
+        <th>address</th>
+        <th>company</th>
+        <td>package</td>
+       
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of Allstundents">
+            <td>{{ student.id}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.mobile}}</td>          
+            <td>{{student.batch}}</td>
+            <td>{{student.address.city}}</td>            
+            <td>{{student.companyname}}</td>           
+            <td>{{student.package}}</td>
+            <td><button class="btn btn-primary" (click)="view(student.id)">view details</button></td>
+           
+        </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      
+      <li class="page-item"  ><a class="page-link" (click)="pagenation(1)" >1</a></li>
+      <li class="page-item"><a class="page-link" (click)="pagenation(2)" >2</a></li>
+      <li class="page-item"><a class="page-link" (click)="pagenation(3)">3</a></li>
+      <li class="page-item"><a class="page-link" (click)="pagenation(4)" >4</a></li>
+      <li class="page-item"><a class="page-link" (click)="pagenation(5)">3</a></li>
+      <li class="page-item"><a class="page-link" (click)="pagenation(6)" >4</a></li>
+    </ul>
+</nav>
